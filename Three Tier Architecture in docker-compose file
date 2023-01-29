@@ -1,4 +1,4 @@
-makdir threetierarch
+mkdir threetierarch
 cd threetierarch
 nano docker-compose.yml
 [[services:
