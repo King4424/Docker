@@ -2,7 +2,7 @@ mkdir composefile
 cd composefile
 nano docker-compose.yml
 [[version: '3'
-services:
+  services:
      web:
       image: nginx
       ports:
