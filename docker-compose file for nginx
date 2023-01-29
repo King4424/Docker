@@ -1,0 +1,15 @@
+mkdir composefile
+cd composefile
+nano docker-compose.yml
+[[version: '3'
+services:
+     web:
+      image: nginx
+      ports:
+        - "80:80"
+      volumes:
+        - /home/ec2-user/composefile/:/usr/share/nginx/html/]]
+nano index.html
+[["hello world"]]
+docker-compose up -d
+docker-compose ps
