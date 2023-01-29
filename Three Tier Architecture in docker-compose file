@@ -1,0 +1,35 @@
+makdir threetierarch
+cd threetierarch
+nano docker-compose.yml
+[[services:
+     web:
+       image: nginx
+       ports:
+         - "80:80"
+       networks:
+         - front
+       volumes:
+         - /home/ec2-user/composefile/:/usr/share/nginx/html
+     app:
+       image: bitnami/php-fpm
+       expose:
+         - "9000"
+       networks:
+         - front
+         - back
+
+     db:
+      image: mysql
+      ports:
+        - "3306"
+      environment:
+         MYSQL_ROOT_PASSWORD: King@1996
+      networks:
+        - back
+networks:
+       front:
+         driver: bridge
+       back:
+         driver: bridge]]
+docker-compose up -d
+docker ps
