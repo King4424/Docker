@@ -1,0 +1,22 @@
+mkdir worddb
+cd worddb
+nano docker-compose.yml
+[[services:
+     db:
+      image: mysql
+      ports:
+       - "3306"
+      environment:
+         MYSQL_ROOT_PASSWORD: pass@123
+         MYSQL_DATABASE: wordpressdb
+     mywordpress:
+       image: wordpress
+       ports:
+         - "80:80"
+       environment:
+          WORDPRESS_DB_HOST: db
+          WORDPRESS_DB_USER: root
+          WORDPRESS_DB_PASSWORD: pass@123
+          WORDPRESS_DB_NAME: wordpressdb]]
+docker-compose up -d
+docker ps or docker-compose ps
